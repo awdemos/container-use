@@ -13,7 +13,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-REPO="awdemos/container-use"
+REPO="dagger/container-use"
 BINARY_NAME="container-use"
 INSTALL_DIR=""
 
