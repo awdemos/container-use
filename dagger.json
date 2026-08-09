@@ -1,0 +1,15 @@
+{
+  "name": "container-use",
+  "engineVersion": "v0.21.8",
+  "sdk": {
+    "source": "go"
+  },
+  "dependencies": [
+    {
+      "name": "goreleaser",
+      "source": "github.com/act3-ai/dagger/goreleaser@main",
+      "pin": "4b4c32c851a380f02ba53fabf8e4704d8330cb7f"
+    }
+  ],
+  "source": ".dagger"
+}

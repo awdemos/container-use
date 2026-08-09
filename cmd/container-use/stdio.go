@@ -1,0 +1,49 @@
+package main
+
+import (
+	"log/slog"
+	"os"
+
+	"dagger.io/dagger"
+	"github.com/dagger/container-use/mcpserver"
+	"github.com/spf13/cobra"
+)
+
+var singleTenant bool
+
+var stdioCmd = &cobra.Command{
+	Use:   "stdio",
+	Short: "Start MCP server for agent integration",
+	Long:  `Start the Model Context Protocol server that enables AI agents to create and manage containerized environments. This is typically used by agents like Claude Code, Cursor, or VSCode.`,
+	RunE: func(app *cobra.Command, _ []string) error {
+		ctx := app.Context()
+
+		slog.Info("connecting to dagger")
+
+		dag, err := dagger.Connect(ctx, dagger.WithLogOutput(logWriter))
+		if err != nil {
+			slog.Error("Error starting dagger", "error", err)
+
+			if isDockerDaemonError(err) {
+				handleDockerDaemonError()
+			}
+
+			os.Exit(1)
+		}
+		defer dag.Close()
+
+		return mcpserver.RunStdioServer(ctx, dag, singleTenant)
+	},
+}
+
+func init() {
+	stdioCmd.Flags().BoolVar(&singleTenant, "single-tenant", false, "Enable single-tenant mode where environment ID is optional (assumes one session per server)")
+	rootCmd.AddCommand(stdioCmd)
+}
+
+// isStdioCommand reports whether cobra will resolve args to the stdio
+// command, regardless of any flags preceding the subcommand.
+func isStdioCommand(args []string) bool {
+	cmd, _, err := rootCmd.Find(args)
+	return err == nil && cmd == stdioCmd
+}
