@@ -56,3 +56,12 @@ func TestCompletionDescriptionFormat(t *testing.T) {
 	assert.True(t, strings.HasPrefix(completion, "env-id\t"))
 	assert.Contains(t, completion, "title (updated 2 hours ago)")
 }
+
+func TestIsStdioCommand(t *testing.T) {
+	assert.True(t, isStdioCommand([]string{"stdio"}), "bare stdio subcommand")
+	assert.True(t, isStdioCommand([]string{"stdio", "--single-tenant"}), "stdio with its own flag")
+	assert.False(t, isStdioCommand([]string{"list"}), "other subcommand")
+	assert.False(t, isStdioCommand([]string{}), "no args")
+	assert.False(t, isStdioCommand([]string{"--help"}), "flag only")
+	assert.False(t, isStdioCommand([]string{"stdout"}), "similar-looking non-command")
+}
