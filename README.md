@@ -18,9 +18,6 @@
 
 **Container Use** lets coding agents do their work in parallel environments without getting in your way. Go from babysitting one agent at a time to enabling multiple agents to work safely and independently with your preferred stack. See the [full documentation](https://container-use.com).
 
-> [!NOTE]
-> This is an actively maintained fork of [dagger/container-use](https://github.com/dagger/container-use). Releases are published from this repository ([Releases](https://github.com/awdemos/container-use/releases)) — install from here rather than upstream. Please report bugs and requests in [this repo's Issues](https://github.com/awdemos/container-use/issues), not upstream.
-
 <p align='center'>
     <img src='./docs/images/demo.gif' width='700' alt='container-use demo'>
 </p>
