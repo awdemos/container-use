@@ -42,5 +42,5 @@ jobs:
           rm -rf "$TMP/.github"
           git -C "$TMP" init -q
           git -C "$TMP" add -A
-          git -C "$TMP" commit -qm "docs snapshot of $SOURCE ($SOURCE_SHA)"
+          git -C "$TMP" -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" commit -qm "docs snapshot of $SOURCE ($SOURCE_SHA)"
           git -C "$TMP" push -f https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:refs/heads/docs
