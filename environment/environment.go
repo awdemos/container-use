@@ -126,11 +126,9 @@ func LoadInfo(ctx context.Context, id string, state []byte, worktree string) (*E
 }
 
 func (env *Environment) apply(ctx context.Context, newState *dagger.Container) error {
-	// TODO(braa): is this sync redundant with newState.ID?
-	if _, err := newState.Sync(ctx); err != nil {
-		return err
-	}
-
+	// ID alone forces full evaluation of the container and returns its
+	// digest; a separate Sync would be redundant here since its returned
+	// container handle would go unused.
 	containerID, err := newState.ID(ctx)
 	if err != nil {
 		return err
