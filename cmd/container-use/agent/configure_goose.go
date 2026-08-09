@@ -76,11 +76,7 @@ func (a *ConfigureGoose) updateGooseConfig(config map[string]any) ([]byte, error
 		"envs":    map[string]any{},
 	}
 
-	data, err := yaml.Marshal(&config)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal config: %w", err)
-	}
-	return data, nil
+	return yaml.Marshal(&config)
 }
 
 func (a *ConfigureGoose) editRules() error {

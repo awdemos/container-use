@@ -2,7 +2,6 @@ package agent
 
 import (
 	"encoding/json"
-	"fmt"
 	"path/filepath"
 
 	"github.com/dagger/container-use/rules"
@@ -45,11 +44,7 @@ func (a *ConfigureCursor) updateMcpConfig(config MCPServersConfig) ([]byte, erro
 		Args:    []string{"stdio"},
 	}
 
-	data, err := json.MarshalIndent(config, "", "  ")
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal config: %w", err)
-	}
-	return data, nil
+	return json.MarshalIndent(config, "", "  ")
 }
 
 func (a *ConfigureCursor) editRules() error {

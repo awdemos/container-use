@@ -71,11 +71,7 @@ func (c *ConfigureClaude) updateSettingsLocal(config ClaudeSettingsLocal) ([]byt
 	allows = append(allows, tools...)
 	config.Permissions.Allow = allows
 
-	data, err := json.MarshalIndent(config, "", "  ")
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal config: %w", err)
-	}
-	return data, nil
+	return json.MarshalIndent(config, "", "  ")
 }
 
 func (c *ConfigureClaude) editRules() error {

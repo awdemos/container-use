@@ -1,7 +1,6 @@
 package agent
 
 import (
-	"fmt"
 	"os/exec"
 	"path/filepath"
 
@@ -60,11 +59,7 @@ func (a *ConfigureCodex) updateCodexConfig(config map[string]any) ([]byte, error
 		"auto_approve": tools(""),
 	}
 
-	data, err := toml.Marshal(&config)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal config: %w", err)
-	}
-	return data, nil
+	return toml.Marshal(&config)
 }
 
 func (a *ConfigureCodex) editRules() error {
