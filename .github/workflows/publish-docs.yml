@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      workflows: write # the docs branch snapshot includes .github/workflows
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -33,6 +34,4 @@ jobs:
           fi
 
           SOURCE_SHA=$(git rev-parse $SOURCE)
-          git push -f https://github-actions[bot]:${{ secrets.RELEASE_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git "$SOURCE_SHA:refs/heads/docs"
-        env:
-          RELEASE_GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB_TOKEN }}
+          git push -f https://github-actions[bot]:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git "$SOURCE_SHA:refs/heads/docs"
