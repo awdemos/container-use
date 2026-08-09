@@ -45,7 +45,7 @@ It's an open-source MCP server that works as a CLI tool with Claude Code, Cursor
 brew install dagger/tap/container-use
 
 # All platforms
-curl -fsSL https://raw.githubusercontent.com/dagger/container-use/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/awdemos/container-use/main/install.sh | bash
 ```
 
 ### Setup with Your Agent
@@ -62,7 +62,7 @@ cd /path/to/repository
 claude mcp add container-use -- container-use stdio
 
 # Add agent rules (optional)
-curl https://raw.githubusercontent.com/dagger/container-use/main/rules/agent.md >> CLAUDE.md
+curl https://raw.githubusercontent.com/awdemos/container-use/main/rules/agent.md >> CLAUDE.md
 ```
 
 <details>

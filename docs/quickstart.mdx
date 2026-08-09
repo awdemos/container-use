@@ -23,7 +23,7 @@ Make sure you have [Docker](https://www.docker.com/get-started) and Git installe
   <Tab title="Shell Script (All Platforms)">
 
   ```sh
-  curl -fsSL https://raw.githubusercontent.com/dagger/container-use/main/install.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/awdemos/container-use/main/install.sh | bash
   container-use version
   ```
 
@@ -32,7 +32,7 @@ Make sure you have [Docker](https://www.docker.com/get-started) and Git installe
   <Tab title="Build from Source">
 
   ```sh
-  git clone https://github.com/dagger/container-use.git
+  git clone https://github.com/awdemos/container-use.git
   cd container-use
   go build -o container-use ./cmd/container-use
   sudo mv container-use /usr/local/bin/
@@ -58,7 +58,7 @@ Container Use works with any MCP-compatible agent: Just add `container-use stdio
     Save CLAUDE.md file at the root of your repository:
 
     ```sh
-    curl https://raw.githubusercontent.com/dagger/container-use/main/rules/agent.md >> CLAUDE.md
+    curl https://raw.githubusercontent.com/awdemos/container-use/main/rules/agent.md >> CLAUDE.md
     ```
   </Step>
 

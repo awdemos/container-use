@@ -49,7 +49,7 @@
     "anchors": [
       {
         "anchor": "GitHub",
-        "href": "https://github.com/dagger/container-use",
+        "href": "https://github.com/awdemos/container-use",
         "icon": "github"
       },
       {
@@ -73,12 +73,12 @@
     "primary": {
       "type": "button",
       "label": "GitHub",
-      "href": "https://github.com/dagger/container-use"
+      "href": "https://github.com/awdemos/container-use"
     }
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/dagger/container-use",
+      "github": "https://github.com/awdemos/container-use",
       "discord": "https://container-use.com/discord"
     }
   }
